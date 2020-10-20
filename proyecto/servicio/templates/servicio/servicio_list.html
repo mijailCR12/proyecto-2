@@ -1,0 +1,41 @@
+{% extends "servicio/base.html" %}
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Nombre</td>
+            <td>Descripcion</td>
+            <td>Duracion</td>
+            <td>Costo</td>
+            <td>
+                <a href="{% url 'servicio_insert' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Add New
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for servicio in servicio_list %}
+        <tr>
+            <td>{{servicio.nombre}}</td>
+            <td>{{servicio.descripcion}}</td>
+            <td>{{servicio.duracion}}</td>
+            <td>{{servicio.costo}}</td>
+            <td>
+                <a href="{% url 'servicio_update' servicio.id %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg"></i>
+                </a>
+                <form action="{% url 'servicio_delete' servicio.id %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">
+                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
