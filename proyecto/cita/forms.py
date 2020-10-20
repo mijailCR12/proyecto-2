@@ -1,18 +1,38 @@
 from django import forms
-from .models import Cita
+from .models import Cliente, Empleado, Servicio
 
 
-class CitaForm(forms.ModelForm):
+class ClienteForm(forms.ModelForm):
 
     class Meta:
-        model = Cita
-        fields = ('fullname', 'mobile', 'emp_code', 'position')
+        model = Cliente
+        fields = ('nombre', 'telefono', 'correo',
+                  'ubicacion')
         labels = {
-            'fullname': 'Full Name',
-            'emp_code': 'EMP. Code'
+            'nombre': 'nombre',
+            'telefono': 'telefono'
         }
 
-    def __init__(self, *args, **kwargs):
-        super(Cita, self).__init__(*args, **kwargs)
-        self.fields['position'].empty_label = "Select"
-        self.fields['emp_code'].required = False
+
+class EmpleadoForm(forms.ModelForm):
+
+    class Meta:
+        model = Empleado
+        fields = ('nombre', 'telefono', 'correo',
+                  'especialidad', 'ubicacion', 'edad')
+        labels = {
+            'nombre': 'nombre',
+            'telefono': 'telefono'
+        }
+
+
+class ServicioForm(forms.ModelForm):
+
+    class Meta:
+        model = Servicio
+        fields = ('nombre', 'descripcion', 'duracion',
+                  'costo')
+        labels = {
+            'nombre': 'nombre',
+            'descripcion': 'descripcion'
+        }

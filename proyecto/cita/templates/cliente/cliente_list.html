@@ -1,0 +1,42 @@
+{% extends "cliente/base.html" %}
+
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Nombre</td>
+            <td>Telefono</td>
+            <td>Correo</td>
+            <td>Ubicacion</td>
+            <td>
+                <a href="{% url 'cliente_insert' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Add New
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in cliente_list %}
+        <tr>
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.telefono}}</td>
+            <td>{{cliente.correo}}</td>
+            <td>{{cliente.ubicacion}}</td>
+            <td>
+                <a href="{% url 'cliente_update' cliente.id %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg"></i>
+                </a>
+                <form action="{% url 'cliente_delete' cliente.id %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">
+                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

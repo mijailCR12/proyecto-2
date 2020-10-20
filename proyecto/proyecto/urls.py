@@ -20,6 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # ruta de employee
     path('employee/', include('employee_register.urls')),
-    path('servicio/', include('servicio.urls')),
-    path('cliente/', include('cita.urls-cliente'))
+    #path('servicio/', include('servicio.urls')),
+    path('cliente/', include('cita.urls-cliente')),
+    path('empleado/', include('cita.urls-empleado')),
+    path('servicio/', include('cita.urls-servicio'))
 ]

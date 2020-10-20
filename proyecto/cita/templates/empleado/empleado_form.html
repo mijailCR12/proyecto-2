@@ -1,0 +1,28 @@
+{% extends "empleado/base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form.nombre|as_crispy_field}}
+    {{form.telefono|as_crispy_field}}
+    {{form.correo|as_crispy_field}}
+    {{form.especialidad|as_crispy_field}}
+    {{form.ubicacion|as_crispy_field}}
+    {{form.edad|as_crispy_field}}
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i>
+                Submit</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'empleado_list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> Back to list
+            </a>
+        </div>
+    </div>
+
+</form>
+{% endblock content %}

@@ -23,7 +23,7 @@ class Empleado(models.Model):
 
 class Servicio(models.Model):
     nombre = models.CharField(max_length=100)
-    descipcion = models.CharField(max_length=255)
+    descripcion = models.CharField(max_length=255)
     duracion = models.CharField(max_length=15)
     costo = models.CharField(max_length=15)
 
@@ -48,4 +48,3 @@ class Cita(models.Model):
     idCliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     idServicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)
     idEmpleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
-    
