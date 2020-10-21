@@ -24,6 +24,7 @@ class Empleado(models.Model):
 class Servicio(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=255)
+    #duracion = models.DateTimeField()
     duracion = models.CharField(max_length=15)
     costo = models.CharField(max_length=15)
 
@@ -42,9 +43,9 @@ class Cliente(models.Model):
 
 
 class Cita(models.Model):
-    fullname = models.CharField(max_length=100)
-    emp_code = models.CharField(max_length=3)
-    mobile = models.CharField(max_length=15)
+    detalle = models.CharField(max_length=100)
+    #fecha = models.CharField(max_length=50)
+    fecha = models.DateField()
     idCliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     idServicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)
     idEmpleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)

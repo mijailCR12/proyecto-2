@@ -1,5 +1,6 @@
 from django import forms
-from .models import Cliente, Empleado, Servicio
+from django.forms.widgets import Widget
+from .models import Cita, Cliente, Empleado, Servicio
 
 
 class ClienteForm(forms.ModelForm):
@@ -36,3 +37,23 @@ class ServicioForm(forms.ModelForm):
             'nombre': 'nombre',
             'descripcion': 'descripcion'
         }
+
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+class CitaForm(forms.ModelForm):
+
+    class Meta:
+        model = Cita
+        fields = ('detalle', 'fecha', 'idCliente',
+                  'idServicio', 'idEmpleado')
+        labels = {
+            'idCliente': 'detalle',
+        }
+        widgets = {'fecha': DateInput}
+
+    idCliente = forms.ModelChoiceField(queryset=Cliente.objects.all())
+    idServicio = forms.ModelChoiceField(queryset=Servicio.objects.all())
+    idEmpleado = forms.ModelChoiceField(queryset=Empleado.objects.all())

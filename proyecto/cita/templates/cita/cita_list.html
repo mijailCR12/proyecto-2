@@ -1,0 +1,44 @@
+{% extends "cita/base.html" %}
+
+
+{% block content %}
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr style="text-align: center;">
+            <td>Detalle</td>
+            <td>Hora</td>
+            <td>Cliente</td>
+            <td>Empleado</td>
+            <td>Servicio</td>
+            <td>
+                <a href="{% url 'cita_insert' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Nueva Cita
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cita in cita_list %}
+        <tr style="text-align: center;">
+            <td>{{cita.detalle}}</td>
+            <td>{{cita.fecha}}</td>
+            <td>{{cita.idCliente}}</td>
+            <td>{{cita.idEmpleado}}</td>
+            <td>{{cita.idServicio}}</td>
+            <td>
+                <a href="{% url 'cita_update' cita.id %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg"></i>
+                </a>
+                <form action="{% url 'cita_delete' cita.id %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">
+                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "index/base.html" %}
+
+
+{% block content %}
+<h2>Área para miembros</h2>
+<p>
+    Bienvenido <b>{{request.user.username}}</b>,
+    esta página es exclusiva para usuarios registrados.
+    <hr>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/servicio_list">Servicios</a>
+</nav>
+
+<!-- As a heading -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/empleado_list">Empleados</a>
+</nav>
+<!-- As a heading -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/cliente_list">Clientes</a>
+</nav>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/cita_list">Citas</a>
+</nav>
+</p>
+
+<hr />
+<a href="/logout" class="btn btn-danger">Cerrar sesión</a>
+{% endblock content %}
