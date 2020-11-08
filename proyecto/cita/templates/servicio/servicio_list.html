@@ -18,10 +18,10 @@
     <tbody>
         {% for servicio in servicio_list %}
         <tr>
-            <td>{{servicio.nombre}}</td>
-            <td>{{servicio.descripcion}}</td>
-            <td>{{servicio.duracion}}</td>
-            <td>{{servicio.costo}}</td>
+            <td>{{servicio.Nombre}}</td>
+            <td>{{servicio.Descripcion}}</td>
+            <td>{{servicio.Duracion}}</td>
+            <td>{{servicio.Costo}}</td>
             <td>
                 <a href="{% url 'servicio_update' servicio.id %}" class="btn text-secondary px-0">
                     <i class="far fa-edit fa-lg"></i>

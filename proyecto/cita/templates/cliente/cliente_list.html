@@ -19,10 +19,10 @@
     <tbody>
         {% for cliente in cliente_list %}
         <tr>
-            <td>{{cliente.nombre}}</td>
-            <td>{{cliente.telefono}}</td>
-            <td>{{cliente.correo}}</td>
-            <td>{{cliente.ubicacion}}</td>
+            <td>{{cliente.Nombre}}</td>
+            <td>{{cliente.Telefono}}</td>
+            <td>{{cliente.Correo}}</td>
+            <td>{{cliente.Ubicacion}}</td>
             <td>
                 <a href="{% url 'cliente_update' cliente.id %}" class="btn text-secondary px-0">
                     <i class="far fa-edit fa-lg"></i>

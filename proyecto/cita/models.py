@@ -3,43 +3,37 @@ from django.db import models
 # Create your models here.
 
 
-# class Position(models.Model):
-#    title = models.CharField(max_length=50)
-#    def __str__(self):
-#        return self.title
-
-
 class Empleado(models.Model):
-    nombre = models.CharField(max_length=100)
-    telefono = models.CharField(max_length=10)
-    correo = models.CharField(max_length=30)
-    especialidad = models.CharField(max_length=100)
-    ubicacion = models.CharField(max_length=255)
-    edad = models.CharField(max_length=10)
+    Nombre = models.CharField(max_length=100)
+    Telefono = models.CharField(max_length=10)
+    Correo = models.CharField(max_length=30)
+    Especialidad = models.CharField(max_length=100)
+    Ubicacion = models.CharField(max_length=255)
+    Edad = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.nombre
+        return self.Nombre
 
 
 class Servicio(models.Model):
-    nombre = models.CharField(max_length=100)
-    descripcion = models.CharField(max_length=255)
+    Nombre = models.CharField(max_length=100)
+    Descripcion = models.CharField(max_length=255)
     #duracion = models.DateTimeField()
-    duracion = models.CharField(max_length=15)
-    costo = models.CharField(max_length=15)
+    Duracion = models.CharField(max_length=15)
+    Costo = models.CharField(max_length=15)
 
     def __str__(self):
-        return self.nombre
+        return self.Nombre
 
 
 class Cliente(models.Model):
-    nombre = models.CharField(max_length=100)
-    telefono = models.CharField(max_length=10)
-    correo = models.CharField(max_length=30)
-    ubicacion = models.CharField(max_length=255)
+    Nombre = models.CharField(max_length=100)
+    Telefono = models.CharField(max_length=10)
+    Correo = models.CharField(max_length=30)
+    Ubicacion = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.nombre
+        return self.Nombre
 
 
 class Cita(models.Model):

@@ -7,8 +7,8 @@ class ClienteForm(forms.ModelForm):
 
     class Meta:
         model = Cliente
-        fields = ('nombre', 'telefono', 'correo',
-                  'ubicacion')
+        fields = ('Nombre', 'Telefono', 'Correo',
+                  'Ubicacion')
         labels = {
             'nombre': 'nombre',
             'telefono': 'telefono'
@@ -19,8 +19,8 @@ class EmpleadoForm(forms.ModelForm):
 
     class Meta:
         model = Empleado
-        fields = ('nombre', 'telefono', 'correo',
-                  'especialidad', 'ubicacion', 'edad')
+        fields = ('Nombre', 'Telefono', 'Correo',
+                  'Especialidad', 'Ubicacion', 'Edad')
         labels = {
             'nombre': 'nombre',
             'telefono': 'telefono'
@@ -31,8 +31,8 @@ class ServicioForm(forms.ModelForm):
 
     class Meta:
         model = Servicio
-        fields = ('nombre', 'descripcion', 'duracion',
-                  'costo')
+        fields = ('Nombre', 'Descripcion', 'Duracion',
+                  'Costo')
         labels = {
             'nombre': 'nombre',
             'descripcion': 'descripcion'
